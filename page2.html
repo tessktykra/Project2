@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture</title>
+    <link href="style.css" rel="stylesheet"> 
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+  
+      .container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        height: 500px;
+        background-color: transparent;
+      }
+
+
+    /* Influence the size of the 3d model */
+    model-viewer {
+      width: 100%;
+      height: 100%;
+    }
+
+    .circle {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(255, 0, 0, 0.8);
+      border-radius: 50%; /* this makes the circle round */
+      cursor: pointer;
+      border: 2px solid white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+/* here you style the text-box */
+    .text-box {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 10; /* notice how the z-index increases, this helps */
+    }
+
+    .text-box p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .text-box .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!--3D MODEL VIEWER-->
+    <model-viewer
+      src="./models/tripo.glb"
+      alt="House"
+      ar
+      auto-rotate
+      camera-controls
+      background-color="#ffffff">
+    </model-viewer>
+
+    <!-- INDICATOR THAT HERE IS SOMETHING TO CLICK -->
+    <div class="circle" style="top: 20%; left: 40%;" data-text="One of the most iconic feature is the pitched roof, which due to Thailand's weather, is designed to quickly shed heavy rainfall and provide shade.
+    The elongated, outward-curving gables (called “lamyong”) are often intricately decorated. These are traditionally made from teak shingles, palm leaves, or clay tiles."></div>
+    <div class="circle" style="top: 50%; left: 60%;" data-text="While the interior is usually very simple, it is often covered with carved wooden panels on doorways and shutters."></div>
+    <div class="circle" style="top: 70%; left: 30%;" data-text="Traditional Thai houses are usually elevated 1 to 3 meters above the ground on wooden or concrete stilts, as this protects against flooding and allows for air circulation to cool the house. This also provides a shaded, open space below for any daily activities, storage, or even livestock.
+    This space under the house can also act as a natural air cushion, reducing heat inside.."></div>
+
+    <!-- TEXT BOX THAT OPENS -->
+    <div class="text-box" id="textBox">
+      <button class="close-btn" onclick="closeTextBox()">×</button>
+      <p id="textBoxContent"></p>
+    </div>
+  </div>
+
+  <!--JAVA SCRIPT STARTS HERE -->
+  <script>
+    //JAVASCRIPT THAT TRIGGERS CLICK ON CIRCLE TO OPEN TEXT BOX 
+    const circles = document.querySelectorAll('.circle');
+    const textBox = document.getElementById('textBox');
+    const textBoxContent = document.getElementById('textBoxContent');
+
+    circles.forEach(circle => {
+      circle.addEventListener('click', () => {
+        const text = circle.getAttribute('data-text');
+        textBoxContent.textContent = text;
+        textBox.style.display = 'block';
+      });
+    });
+
+    // FUNCTION TO CLOSE TEXTBOX 
+    function closeTextBox() {
+      textBox.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

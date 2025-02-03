@@ -1,0 +1,74 @@
+
+body{
+    background-color: rgb(188, 168, 132);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* LANDING PAGE ICONS */
+#gridflex {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 60px;
+    left: 50px;
+}
+
+.flexgrid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    z-index: 3;
+
+}
+
+.flexgrid-item img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.flexgrid-item h3 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.flexgrid-item p {
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    text-align: left;
+}
+
+
+/* background on landing page*/
+.background1{
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    right: 50px;
+    transform: rotate(90deg);
+}
+
+
+/*buttons on landing*/
+.flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    position: relative;
+    z-index:4 ;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.item-2{
+    border: solid 1px rgb(0, 0, 0);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 30px;
+}
