@@ -20,6 +20,29 @@ body{
     z-index:2;
 }
 
+.container1{
+    max-width: 800px;
+    min-height: 1000px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #bca884;
+    box-shadow: 0 0 10px black;
+    border-radius: 50px;
+    z-index: 4;
+    position: relative;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    position: relative;
+    z-index:4 ;
+    flex-direction: row;
+    gap: 20px;
+}
+
 .grid-item{
     background: rgba(172, 255, 47, 0);
     border:1px solid rgba(0, 0, 0, 0);
@@ -85,5 +108,28 @@ body{
     top: 100px;
     width: 30%;
 
+}
+
+.Khon {
+    position: absolute;
+    width: 30%;
+    border-radius: 10%;
+    top: 450px;
+}
+
+.dancer {
+    position: absolute;
+    width:30%;
+    border-radius: 10%;
+    left: 280px;
+    top: 450px;
+}
+
+.mask {
+    position: absolute;
+    width:30%;
+    border-radius: 10%;
+    left: 550px;
+    top: 450px;
 }
 
